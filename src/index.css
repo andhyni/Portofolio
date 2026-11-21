@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #080808;
+  --color-navy-arch: #1A365D;
+  --color-navy-dark: #0b192e;
+  --color-subtle-border: rgba(255, 255, 255, 0.08);
+  --color-muted-grey: #8E929B;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-signature: "Caveat", cursive;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --shadow-glow-cyan: 0 0 35px -5px rgba(56, 189, 248, 0.25);
+  --shadow-arch-glow: 0 20px 80px -15px rgba(26, 54, 93, 0.65);
+  --shadow-portrait-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+
+  --animate-ribbon-scroll: ribbonScroll 32s linear infinite;
+}
+
+@keyframes ribbonScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+html {
+  background-color: #080808;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080808;
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient perspective floor grid & radial spotlight */
+.bg-perspective-grid {
+  background-image:
+    radial-gradient(circle at 50% 18%, rgba(26, 54, 93, 0.28) 0%, rgba(8, 8, 8, 0) 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 64px 64px, 64px 64px;
+}
+
+/* 3D Perspective Ribbon Stage behind the hero portrait */
+.hero-perspective-stage {
+  perspective: 1200px;
+  perspective-origin: center 40%;
+}
+
+.curved-marquee-track {
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) rotateY(-4deg) rotateZ(-1deg);
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: ribbonScroll 34s linear infinite;
+}
+
+.curved-marquee-track:hover,
+.curved-marquee-track.is-paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curved-marquee-track {
+    animation: none;
+  }
+}
+
+/* Subtle hair-line glass styling */
+.glass-hairline {
+  background: rgba(18, 18, 20, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-4px);
+}
+
+::selection {
+  background-color: #1e3a8a;
+  color: #ffffff;
+}

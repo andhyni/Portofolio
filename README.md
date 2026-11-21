@@ -1,11 +1,27 @@
-<div align="center">
+# Andhyni A'syafa A-lifia — Portfolio
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Portfolio web berbasis **React + TypeScript + Vite + Tailwind CSS v4** yang sudah dikonfigurasi untuk deployment di **Vercel**.
 
-  <h1>Built with AI Studio</h2>
+## Deploy ke Vercel
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+### 1. Melalui GitHub (Direkomendasikan)
+1. Push repository ini ke GitHub / GitLab / Bitbucket.
+2. Buka [vercel.com/new](https://vercel.com/new) dan pilih repository ini.
+3. Pengaturan berikut otomatis terbaca dari `vercel.json`:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Node.js Version**: `20.x` atau lebih baru
+4. Tidak ada Environment Variable wajib untuk aplikasi statis ini. Klik **Deploy**.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### 2. Melalui Vercel CLI
+```bash
+npm install -g vercel
+vercel --prod
+```
 
-</div>
+## Menjalankan Secara Lokal
+```bash
+npm install
+npm run dev
+```
